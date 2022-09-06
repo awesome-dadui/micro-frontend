@@ -1,6 +1,6 @@
 # 微前端落地实现
 
-微前端介绍 [click here](https://github.com/cengbin/web-blog/tree/master/1.2%20%E5%BE%AE%E5%89%8D%E7%AB%AF)
+关于微前端 [click here](https://github.com/cengbin/web-blog/tree/master/1.2%20%E5%BE%AE%E5%89%8D%E7%AB%AF)
 
 前端工程化构建工具`frontend-cli` [click here](https://github.com/cengbin/frontend-cli)
 
