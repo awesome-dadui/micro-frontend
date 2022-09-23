@@ -8,22 +8,24 @@ new Object()
 Math.random()
 new Date()
 
-console.log('13')
+console.log('home.js 1')
 parseInt(1.23)
 console.log(alert)
 console.log(tpl)
+console.log("this:", this)
 
 export default {
   entry() {
     console.log('home entry 12')
 
-    $('#content').html(tpl)
+    $('#content').append(`<div></div>`)
 
     var app = new Vue({
-      el: '#app',
+      el: $('#content').children(0)[0],
+      template: tpl,
       data() {
         return {
-          name: 'home',
+          name: 'home page',
           id: parseInt(Math.random() * 1000),
         }
       },
@@ -31,6 +33,9 @@ export default {
         onClickBtn() {
           router.go('#app2/user')
         }
+      },
+      mounted() {
+        console.log('app:', this.$el)
       }
     })
   },

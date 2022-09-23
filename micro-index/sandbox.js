@@ -4,13 +4,16 @@
     Math: window.Math,
     Date: window.Date,
 
+    document: window.document,
     console: window.console,
     parseInt: window.parseInt,
     alert: window.alert,
 
     define: window.define,
     $: window.$,
-    Vue: window.Vue
+    Vue: window.Vue,
+
+    router: window.router,
   }
 
   var handler = {
