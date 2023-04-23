@@ -1,0 +1,21 @@
+[
+  {
+    "name": "home",
+    "js": [
+      "http://localhost:8888/micro-frontend/home/dist/home.js"
+    ]
+  },
+  {
+    "name": "news",
+    "js": [
+      "http://localhost:8888/micro-frontend/news/dist/js/chunk-vendors.6b50b1f2.js",
+      "http://localhost:8888/micro-frontend/news/dist/news.js"
+    ]
+  },
+  {
+    "name": "user",
+    "js": [
+      "http://localhost:8888/micro-frontend/user/build/static/js/user.js"
+    ]
+  }
+]
