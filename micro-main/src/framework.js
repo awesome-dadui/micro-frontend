@@ -36,14 +36,14 @@ export function start() {
         var microContainer = document.getElementById("micro-container")
         microContainer.innerHTML = ""
 
+        console.log("上一个子应用 ---> ", currentApp);
         if (currentApp) {
-            console.log("上一个子应用：", currentApp);
             currentApp?.module?.unmount()
 
             mainLifecycle.destroyed()
         }
 
-        console.log("当前子应用：", app);
+        console.log("当前子应用  --->", app);
         let {loaded, js} = app
         if (loaded) {
             app?.module?.mount()

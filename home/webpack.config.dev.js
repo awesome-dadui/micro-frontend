@@ -27,7 +27,7 @@ module.exports = {
   devServer: {
     static: "./",
     compress: true,
-    port: 9000,
-    hot: true
+    port: 9005,
+    hot: true,
   },
 }

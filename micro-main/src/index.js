@@ -3,13 +3,13 @@ import apps from "./apps.json";
 
 registryApp(apps, {
     beforeLoad() {
-        console.log("开始加载")
+        console.log("framework ---> 开始加载子应用")
     },
     mounted() {
-        console.log("挂载完成")
+        console.log("framework ---> 子应用挂载完成")
     },
     destroyed() {
-        console.log("卸载完成")
+        console.log("framework ---> 卸载完成")
     }
 });
 
