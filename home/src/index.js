@@ -1,12 +1,14 @@
+import "./style.css";
+
 function render(id) {
   var container = id
     ? document.getElementById(id)
     : document.body
 
-  container.innerHTML = `<div>我是home应用</div>`
+  container.innerHTML = `<div class="home">我是home应用</div>`
 
-  import(/*a*/'./message').then((module) => {
-    console.log("module:", module)
+  import(/* webpackChunkName: "message" */'./message').then((module) => {
+    console.log("message module:", module)
   })
 }
 
