@@ -16,5 +16,7 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "single-spa": "^5.9.4"
+  }
 }

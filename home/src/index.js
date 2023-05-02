@@ -1,26 +1,32 @@
-import "./style.css";
+import './style.css'
 
-function render(id) {
-  var container = id
-    ? document.getElementById(id)
-    : document.body
+console.log("home -> index.js")
+let domEl
 
-  container.innerHTML = `<div class="home">我是home应用</div>`
-
-  import(/* webpackChunkName: "message" */'./message').then((module) => {
-    console.log("message module:", module)
-  })
+function render(container) {
+  domEl = document.createElement('div')
+  domEl.id = 'home'
+  domEl.innerHTML = 'App Home'
+  container.appendChild(domEl)
 }
 
-if (!window.__MICRO_WEB__) {
-  render()
+if (!window.singleSpaNavigate) {
+  render(document.body)
 }
 
-export function mount() {
-  render('micro-container')
+export async function bootstrap() {
+  console.log("home -> bootstrap 初始化")
 }
 
-export function unmount() {
+export async function mount(props) {
+  console.log("home -> mount 挂载")
 
+  let {container} = props
+
+  render(document.getElementById(container))
 }
 
+export async function unmount(props) {
+  console.log("home -> unmount 卸载")
+  domEl.parentNode.removeChild(domEl)
+}

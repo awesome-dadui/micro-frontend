@@ -1,33 +1,43 @@
+/* eslint-disable */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
 Vue.config.productionTip = false
 
-function render(id = "#app") {
-  if (id !== "#app") {
-    var microContainer = document.getElementById(id)
-    var root = document.createElement("div")
-    microContainer.appendChild(root)
-    id = root
-  }
+let instance = null
 
-  new Vue({
+function render(root) {
+  var app = document.createElement("div")
+  root.appendChild(app)
+
+  instance = new Vue({
     router,
     render: h => h(App),
-  }).$mount(id)
+  }).$mount(app)
 }
 
-if (!window.__MICRO_WEB__) {
-  render()
+if (!window.singleSpaNavigate) {
+  render(document.getElementById("app"))
 }
 
-export function mount() {
-  render('micro-container')
+export async function bootstrap() {
+  console.log("news -> bootstrap 首次渲染")
 }
 
-export function unmount() {
+export async function mount(props) {
+  console.log("news -> mount 挂载")
 
+  render(document.getElementById('micro-container'))
 }
 
-export default 'news'
+export async function unmount(props) {
+  console.log("news -> unmount 卸载")
+
+  instance && instance.$destroy()
+  instance.$el.innerHTML = ''
+  instance.$el.parentNode.removeChild(instance.$el)
+  instance = null
+}
+
+export default "i'am news-app"

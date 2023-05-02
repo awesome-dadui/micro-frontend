@@ -2,28 +2,43 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
-import {HashRouter} from 'react-router-dom'
+import {BrowserRouter as Router, /*HashRouter as Router*/} from 'react-router-dom'
 
-function render(id = 'root') {
-  let rootEle = document.getElementById(id)
-  console.log(rootEle)
-  ReactDOM.render(
-    <HashRouter>
+let instance = null
+let root = null
+
+function render() {
+  instance = ReactDOM.render(
+    <Router>
       <App/>
-    </HashRouter>,
-    rootEle
+    </Router>,
+    root
   )
+  console.log("ReactDOM:", ReactDOM)
+  console.log("instance:", instance)
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.singleSpaNavigate) {
+  root = document.getElementById("root")
   render()
 }
 
-export function mount() {
-  render('micro-container')
+export async function bootstrap() {
+  console.log("user -> bootstrap 首次渲染")
 }
 
-export function unmount() {
-
+export async function mount(props) {
+  console.log("user -> mount 挂载")
+  root = document.getElementById("micro-container")
+  render()
 }
 
+export async function unmount(props) {
+  console.log("user -> unmount 卸载")
+
+  ReactDOM.unmountComponentAtNode(root)
+  instance = null
+  root = null
+}
+
+export default "i'am user-app"
